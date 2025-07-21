@@ -1,90 +1,78 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>DreamPath – Make Dreams Happen</title>
-  <!-- Tailwind CSS CDN -->
-  <script src="https://cdn.tailwindcss.com"></script>
-  <style>
-    html {
-      transition: background-color 0.3s, color 0.3s;
-    }
-  </style>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Simple Dark Mode Toggle</title>
+<style>
+  /* Light mode colors */
+  :root {
+    --bg-color: #f9fafb;
+    --text-color: #1a202c;
+  }
+
+  /* Dark mode colors */
+  body.dark {
+    --bg-color: #1a202c;
+    --text-color: #f9fafb;
+  }
+
+  body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    transition: background-color 0.3s ease, color 0.3s ease;
+    font-family: Arial, sans-serif;
+    margin: 2rem;
+  }
+
+  #darkModeToggle {
+    position: fixed;
+    top: 1rem;
+    left: 1rem;
+    background: var(--bg-color);
+    color: var(--text-color);
+    border: 2px solid var(--text-color);
+    border-radius: 0.5rem;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    font-size: 1.5rem;
+    user-select: none;
+    transition: background 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+  }
+  #darkModeToggle:hover {
+    background: var(--text-color);
+    color: var(--bg-color);
+  }
+</style>
 </head>
-<body class="bg-gray-50 text-gray-800 dark:bg-gray-900 dark:text-gray-200 transition-colors duration-300">
-  
-  <!-- Dark Mode Toggle Button -->
-  <button id="darkModeToggle" aria-label="Toggle Dark Mode" 
-    class="fixed top-4 left-4 bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-gray-200 p-2 rounded shadow-md focus:outline-none z-50">
-    🌙
-  </button>
+<body>
 
-  <!-- Header -->
-  <header class="text-center py-20 px-4">
-    <h1 class="text-4xl md:text-5xl font-bold mb-4">Turn Your Dreams Into Reality</h1>
-    <p class="text-xl mb-6">Enter your dream and we’ll build you a custom plan — steps, cost, and timeline.</p>
-    <a href="#dream-form" class="bg-blue-600 hover:bg-blue-700 text-white py-3 px-6 rounded-xl text-lg inline-block">Get Your Free Dream Plan</a>
-  </header>
+<button id="darkModeToggle" aria-label="Toggle Dark Mode">🌙</button>
 
-  <!-- How It Works Section -->
-  <section class="max-w-5xl mx-auto py-16 px-4 grid md:grid-cols-3 gap-8">
-    <div class="bg-white dark:bg-gray-800 p-6 rounded-xl shadow">
-      <h2 class="text-2xl font-semibold mb-2">1. Share Your Dream</h2>
-      <p>Tell us what you want to achieve — big or small.</p>
-    </div>
-    <div class="bg-white dark:bg-gray-800 p-6 rounded-xl shadow">
-      <h2 class="text-2xl font-semibold mb-2">2. We Build Your Path</h2>
-      <p>Get step-by-step guidance with estimated costs and timelines.</p>
-    </div>
-    <div class="bg-white dark:bg-gray-800 p-6 rounded-xl shadow">
-      <h2 class="text-2xl font-semibold mb-2">3. Start Your Journey</h2>
-      <p>Follow your custom plan and track your progress.</p>
-    </div>
-  </section>
+<h1>Welcome to DreamPath</h1>
+<p>Use the button on the top-left to toggle dark mode.</p>
 
-  <!-- Dream Form Section -->
-  <section id="dream-form" class="bg-white dark:bg-gray-800 py-16 px-4 max-w-3xl mx-auto rounded-xl shadow">
-    <h2 class="text-3xl font-bold mb-6 text-center">Plan My Dream</h2>
-<iframe 
-  src="https://docs.google.com/forms/d/e/1FAIpQLSfQcbgWjIP7hj6mAdxLO5EauglueJaa28GeX6KIC7-g7H4tZg/viewform?embedded=true" 
-  width="100%" 
-  height="1600" 
-  style="border:none;" 
-  loading="lazy"
-  title="DreamPath Submission Form">
-  Loading…
-</iframe>
-  </section>
+<script>
+  const toggleBtn = document.getElementById('darkModeToggle');
+  const body = document.body;
 
-  <!-- Footer -->
-  <footer class="text-center text-sm text-gray-500 dark:text-gray-400 py-10">
-    © 2025 DreamPath. All rights reserved.
-  </footer>
+  // Load saved preference or default to light
+  if (localStorage.getItem('theme') === 'dark') {
+    body.classList.add('dark');
+    toggleBtn.textContent = '☀️';
+  }
 
-  <!-- Dark Mode Toggle Script -->
-  <script>
-    const toggleBtn = document.getElementById('darkModeToggle');
-    const htmlElement = document.documentElement;
-
-    // Load saved theme or system preference
-    if (localStorage.getItem('theme') === 'dark' || 
-       (!localStorage.getItem('theme') && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
-      htmlElement.classList.add('dark');
+  toggleBtn.addEventListener('click', () => {
+    body.classList.toggle('dark');
+    if (body.classList.contains('dark')) {
+      localStorage.setItem('theme', 'dark');
       toggleBtn.textContent = '☀️';
+    } else {
+      localStorage.setItem('theme', 'light');
+      toggleBtn.textContent = '🌙';
     }
-
-    toggleBtn.addEventListener('click', () => {
-      htmlElement.classList.toggle('dark');
-      if (htmlElement.classList.contains('dark')) {
-        localStorage.setItem('theme', 'dark');
-        toggleBtn.textContent = '☀️'; // sun icon
-      } else {
-        localStorage.setItem('theme', 'light');
-        toggleBtn.textContent = '🌙'; // moon icon
-      }
-    });
-  </script>
+  });
+</script>
 
 </body>
 </html>
