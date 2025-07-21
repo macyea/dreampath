@@ -1,12 +1,24 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>DreamPath – Make Dreams Happen</title>
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet" />
+  <style>
+    /* Transition for smooth color mode changes */
+    html {
+      transition: background-color 0.3s, color 0.3s;
+    }
+  </style>
 </head>
-<body class="bg-gray-50 text-gray-800">
+<body class="bg-gray-50 text-gray-800 dark:bg-gray-900 dark:text-gray-200 transition-colors duration-300">
+  <!-- Dark Mode Toggle Button -->
+  <button id="darkModeToggle" aria-label="Toggle Dark Mode" 
+    class="fixed top-4 left-4 bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-gray-200 p-2 rounded shadow-md focus:outline-none z-50">
+    🌙
+  </button>
+
   <!-- Hero Section -->
   <section class="text-center py-20 px-4">
     <h1 class="text-4xl md:text-5xl font-bold mb-4">Turn Your Dreams Into Reality</h1>
@@ -16,37 +28,19 @@
 
   <!-- How It Works -->
   <section class="max-w-5xl mx-auto py-16 px-4 grid md:grid-cols-3 gap-8">
-    <div class="bg-white p-6 rounded-xl shadow">
+    <div class="bg-white dark:bg-gray-800 p-6 rounded-xl shadow">
       <h2 class="text-2xl font-semibold mb-2">1. Share Your Dream</h2>
       <p>Tell us what you want to achieve — big or small.</p>
     </div>
-    <div class="bg-white p-6 rounded-xl shadow">
+    <div class="bg-white dark:bg-gray-800 p-6 rounded-xl shadow">
       <h2 class="text-2xl font-semibold mb-2">2. We Build Your Path</h2>
       <p>Get step-by-step guidance with estimated costs and timelines.</p>
     </div>
-    <div class="bg-white p-6 rounded-xl shadow">
+    <div class="bg-white dark:bg-gray-800 p-6 rounded-xl shadow">
       <h2 class="text-2xl font-semibold mb-2">3. Start Your Journey</h2>
       <p>Follow your custom plan and track your progress.</p>
     </div>
   </section>
 
   <!-- Dream Form -->
-  <section id="dream-form" class="bg-white py-16 px-4 max-w-3xl mx-auto rounded-xl shadow">
-    <h2 class="text-3xl font-bold mb-6 text-center">Plan My Dream</h2>
-    <iframe 
-      src="https://docs.google.com/forms/d/e/1FAIpQLSfQcbgWjIP7hj6mAdxLO5EauglueJaa28GeX6KIC7-g7H4tZg/viewform?embedded=true" 
-      width="100%" 
-      height="900" 
-      style="border:none;" 
-      scrolling="no" 
-      loading="lazy">
-      Loading…
-    </iframe>
-  </section>
-
-  <!-- Footer -->
-  <footer class="text-center text-sm text-gray-500 py-10">
-    © 2025 DreamPath. All rights reserved.
-  </footer>
-</body>
-</html>
+  <section id="dream-form" class="bg-white dar
