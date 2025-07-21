@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DreamPath – Make Dreams Happen</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-50 text-gray-800">
+  <!-- Hero Section -->
+  <section class="text-center py-20 px-4">
+    <h1 class="text-4xl md:text-5xl font-bold mb-4">Turn Your Dreams Into Reality</h1>
+    <p class="text-xl mb-6">Enter your dream and we’ll build you a custom plan — steps, cost, and timeline.</p>
+    <a href="#dream-form" class="bg-blue-600 hover:bg-blue-700 text-white py-3 px-6 rounded-xl text-lg">Get Your Free Dream Plan</a>
+  </section>
+
+  <!-- How It Works -->
+  <section class="max-w-5xl mx-auto py-16 px-4 grid md:grid-cols-3 gap-8">
+    <div class="bg-white p-6 rounded-xl shadow">
+      <h2 class="text-2xl font-semibold mb-2">1. Share Your Dream</h2>
+      <p>Tell us what you want to achieve — big or small.</p>
+    </div>
+    <div class="bg-white p-6 rounded-xl shadow">
+      <h2 class="text-2xl font-semibold mb-2">2. We Build Your Path</h2>
+      <p>Get step-by-step guidance with estimated costs and timelines.</p>
+    </div>
+    <div class="bg-white p-6 rounded-xl shadow">
+      <h2 class="text-2xl font-semibold mb-2">3. Start Your Journey</h2>
+      <p>Follow your custom plan and track your progress.</p>
+    </div>
+  </section>
+
+  <!-- Dream Form -->
+  <section id="dream-form" class="bg-white py-16 px-4 max-w-3xl mx-auto rounded-xl shadow">
+    <h2 class="text-3xl font-bold mb-6 text-center">Plan My Dream</h2>
+    <form class="grid gap-6">
+      <div>
+        <label class="block text-lg font-medium mb-2">What's your dream?</label>
+        <input type="text" placeholder="e.g., Visit the Northern Lights" class="w-full border px-4 py-3 rounded-lg" />
+      </div>
+      <div>
+        <label class="block text-lg font-medium mb-2">Your budget</label>
+        <select class="w-full border px-4 py-3 rounded-lg">
+          <option>Under £500</option>
+          <option>£500 – £2000</option>
+          <option>£2000+</option>
+        </select>
+      </div>
+      <div>
+        <label class="block text-lg font-medium mb-2">Timeline</label>
+        <select class="w-full border px-4 py-3 rounded-lg">
+          <option>This year</option>
+          <option>Next year</option>
+          <option>No specific deadline</option>
+        </select>
+      </div>
+      <div>
+        <label class="block text-lg font-medium mb-2">Email address (to receive your plan)</label>
+        <input type="email" placeholder="you@example.com" class="w-full border px-4 py-3 rounded-lg" />
+      </div>
+      <button class="bg-blue-600 hover:bg-blue-700 text-white py-3 px-6 rounded-xl text-lg">Generate My Plan</button>
+    </form>
+  </section>
+
+  <!-- Footer -->
+  <footer class="text-center text-sm text-gray-500 py-10">
+    © 2025 DreamPath. All rights reserved.
+  </footer>
+</body>
+</html>
